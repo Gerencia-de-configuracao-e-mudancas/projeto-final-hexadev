@@ -57,6 +57,29 @@
       </div>
     </div>
   </header>
+  <section id="vcs" class="reveal">
+    <div class="container">
+      <span class="section-label">01.1 — sistemas de versão</span>
+      <h2>Centralizado e distribuído: qual a diferença na prática?</h2>
+      <p class="sub">No centralizado, o histórico fica num servidor. No distribuído, cada desenvolvedor tem uma cópia
+        completa localmente.</p>
+
+      <div class="split">
+        <div>
+          <h3>Centralizado / CVCS</h3>
+          <p class="big">Um servidor guarda o histórico inteiro.</p>
+          <p>O desenvolvedor baixa só a versão que precisa trabalhar. Sem conexão com o servidor, não dá pra commitar,
+            ver o log ou criar branch. SVN e CVS funcionam assim.</p>
+        </div>
+        <div class="winner">
+          <h3>Distribuído / DVCS</h3>
+          <p class="big">Cada clone já é um repositório completo.</p>
+          <p>Todo desenvolvedor tem o histórico inteiro na máquina dele. Dá pra trabalhar offline, e se o servidor cair
+            os dados não somem. É assim que o Git funciona.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script src="main.js"></script>
 </body>
