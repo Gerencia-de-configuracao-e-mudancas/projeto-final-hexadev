@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git Academy — 03 / Branches e trabalho em paralelo</title>
+  <meta name="description"
+    content="Como branches funcionam, estratégias de branching e como resolver conflitos sem entrar em pânico." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="git-icon-logo-png-transparent.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="dot"></span>
+        <span><b>Git</b> Academy</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-num="01">fundamentos</a></li>
+        <li><a href="comandos.html" data-num="02">comandos</a></li>
+        <li><a href="branch.html" data-num="03" class="active">branches</a></li>
+        <li><a href="github.html" data-num="04">github</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-toggle" title="Menu">
+          <img src="cardapio.png" alt="Menu" width="20" height="20">
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-num">capítulo<b>03</b></div>
+        <div class="hero-content reveal">
+          <h1>Branches são <em>linhas paralelas de história</em>, não cópias.</h1>
+          <p class="lead">Uma branch no Git é só um ponteiro para um commit. Barato, leve e descartável — exatamente o
+            que torna o trabalho em equipe possível.</p>
+          <div class="hero-meta">
+            <span>diagrama interativo</span>
+            <span>2 estratégias de mercado</span>
+            <span>resolução de conflitos</span>
+          </div>
+          <div class="actions">
+            <a href="#diagrama" class="btn primary">ver o diagrama <span class="arrow">→</span></a>
+            <a href="#conflitos" class="btn ghost">resolver conflitos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="diagrama" class="reveal">
+    <div class="container">
+      <span class="section-label">03.1 — visualização</span>
+      <h2>Um feature branch nasce, vive e morre em um merge.</h2>
+      <p class="sub">Acompanhe os commits de uma branch <code>feature/api</code> sendo integrada de volta à
+        <code>main</code>.</p>
+
+      <div class="branch-diagram">
+        <div class="branch-row main">
+          <div class="branch-name">main</div>
+          <div class="line">
+            <div class="commit-dot" style="left: 8%;"><span class="commit-label" style="left:50%;">C1</span></div>
+            <div class="commit-dot" style="left: 28%;"><span class="commit-label" style="left:50%;">C2</span></div>
+            <div class="commit-dot" style="left: 92%; background: var(--violet); box-shadow: 0 0 0 1px var(--violet);">
+              <span class="commit-label" style="left:50%;">C5 merge</span></div>
+          </div>
+        </div>
+        <div class="branch-row feature">
+          <div class="branch-name">feature/api</div>
+          <div class="line">
+            <div class="commit-dot" style="left: 45%;"><span class="commit-label" style="left:50%;">C3</span></div>
+            <div class="commit-dot" style="left: 70%;"><span class="commit-label" style="left:50%;">C4</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="terminal" style="margin-top: 28px;">
+        <div class="terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span
+            class="name">fluxo completo</span></div>
+        <div class="terminal-body">
+          <span class="prompt">$</span> <span class="cmd">git checkout -b feature/api</span>
+          <span class="out">Switched to a new branch 'feature/api'</span>
+          <span class="prompt">$</span> <span class="cmd">git commit -m "feat: endpoint /users"</span>
+          <span class="prompt">$</span> <span class="cmd">git commit -m "feat: endpoint /posts"</span>
+          <span class="prompt">$</span> <span class="cmd">git checkout main &amp;&amp; git merge feature/api</span>
+          <span class="out">Merge made by the 'ort' strategy.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="estrategias" class="reveal">
+    <div class="container">
+      <span class="section-label">03.2 — estratégias</span>
+      <h2>Qual fluxo a equipe adota define a velocidade dela.</h2>
+      <p class="sub">Não existe "melhor". Existe o que serve para o produto, o time e a frequência de deploy.</p>
+
+      <div class="split">
+        <div>
+          <h3>GitHub Flow</h3>
+          <p class="big">Uma branch principal. Branches curtas. Deploy contínuo.</p>
+          <p>Tudo o que entra na <code>main</code> está em produção. Cada feature é uma branch de poucos dias revisada
+            por pull request. Funciona para SaaS e produtos web modernos.</p>
+        </div>
+        <div>
+          <h3>Git Flow</h3>
+          <p class="big">Branches longas: develop, release, hotfix.</p>
+          <p>Estrutura rígida pensada para softwares com release planejado (mobile, desktop, on-premise). Mais
+            cerimônia, mais controle, mais lentidão proposital.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="conflitos" class="reveal">
+    <div class="container">
+      <span class="section-label">03.3 — quando dá ruim</span>
+      <h2>Conflito não é erro. É o Git pedindo sua opinião.</h2>
+      <p class="sub">Quando duas pessoas mudam a mesma linha, o Git para e pergunta qual versão vale.</p>
+
+      <div class="split">
+        <div>
+          <h3>anatomia do conflito</h3>
+          <div class="conflict" style="margin-top: 12px;">
+            <div class="ln marker"><span class="n">1</span>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</div>
+            <div class="ln head"><span class="n">2</span>const url = 'https://api.v1.com';</div>
+            <div class="ln marker"><span class="n">3</span>=======</div>
+            <div class="ln incoming"><span class="n">4</span>const url = 'https://api.v2.com';</div>
+            <div class="ln marker"><span class="n">5</span>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/api</div>
+          </div>
+        </div>
+        <div class="winner">
+          <h3>como resolver</h3>
+          <p class="big">Edite o arquivo. Apague os marcadores. Commit.</p>
+          <p>Escolha uma das versões, as duas combinadas, ou algo novo. Depois:</p>
+          <div class="terminal" style="margin-top: 14px;">
+            <div class="terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span
+                class="name">resolução</span></div>
+            <div class="terminal-body">
+              <span class="prompt">$</span> <span class="cmd">git add src/config.js</span>
+              <span class="prompt">$</span> <span class="cmd">git commit -m "fix: padroniza endpoint v2"</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="nav-brand" style="margin-bottom: 16px;"><span
+              class="dot"></span><span><b>git</b><span class="slash">/</span>academy</span></a>
+          <p>Material de estudo aberto sobre versionamento de código. Construído para colegas de turma, não para SEO.
+          </p>
+        </div>
+        <div>
+          <h5>capítulos</h5>
+          <ul>
+            <li><a href="index.html">01 / fundamentos</a></li>
+            <li><a href="comandos.html">02 / comandos</a></li>
+            <li><a href="branch.html">03 / branches</a></li>
+            <li><a href="github.html">04 / github</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>responsáveis</h5>
+          <div class="team-list">
+            <div class="team-row"><span></span><span>Ray Davyd</span></div>
+            <div class="team-row"><span></span><span>Luciana Silva</span></div>
+            <div class="team-row"><span></span><span>Gustavo Pires</span></div>
+            <div class="team-row"><span></span><span>Luan Ribeiro</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>projeto acadêmico — gerência de configuração e mudança / 2026</span>
+        <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">voltar ao topo ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  
+</body>
+
+</html>
