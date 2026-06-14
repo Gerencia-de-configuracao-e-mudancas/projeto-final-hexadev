@@ -142,6 +142,56 @@
       </div>
     </div>
   </section>
+  <section id="instalar" class="reveal">
+    <div class="container">
+      <span class="section-label">01.4 — instalação</span>
+      <h2>Como instalar o Git na sua máquina.</h2>
+      <p class="sub">Selecione o sistema operacional abaixo.</p>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="win">windows</button>
+        <button class="tab-btn" data-tab="mac">macos</button>
+        <button class="tab-btn" data-tab="linux">linux</button>
+      </div>
+
+      <div class="tab-panel active" id="win">
+        <div class="terminal">
+          <div class="terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span
+              class="name">setup — git-for-windows</span></div>
+          <div class="terminal-body">
+            <span class="out"># baixe o instalador em git-scm.com e siga o setup</span>
+            <span class="out"># deixe a opção "Git Bash Here" marcada</span>
+            <span class="prompt">PS C:\&gt;</span> <span class="cmd">git --version</span>
+            <span class="out">git version 2.45.2.windows.1</span>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="mac">
+        <div class="terminal">
+          <div class="terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span
+              class="name">zsh — homebrew</span></div>
+          <div class="terminal-body">
+            <span class="prompt">~ $</span> <span class="cmd">brew install git</span>
+            <span class="out">==&gt; Installing git ...</span>
+            <span class="prompt">~ $</span> <span class="cmd">git --version</span>
+            <span class="out">git version 2.45.2</span>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="linux">
+        <div class="terminal">
+          <div class="terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span
+              class="name">bash — debian/ubuntu</span></div>
+          <div class="terminal-body">
+            <span class="prompt">$</span> <span class="cmd">sudo apt update &amp;&amp; sudo apt install git -y</span>
+            <span class="out">Setting up git (1:2.43.0-1ubuntu7) ...</span>
+            <span class="prompt">$</span> <span class="cmd">git --version</span>
+            <span class="out">git version 2.43.0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script src="main.js"></script>
 </body>
