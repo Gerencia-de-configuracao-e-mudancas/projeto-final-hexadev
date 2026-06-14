@@ -80,6 +80,36 @@
       </div>
     </div>
   </section>
+  <section id="areas" class="reveal">
+    <div class="container">
+      <span class="section-label">01.2 — arquitetura local</span>
+      <h2>As três áreas do Git que você precisa conhecer.</h2>
+      <p class="sub">Antes de rodar qualquer comando, é importante entender onde o Git guarda as coisas e por quê.</p>
+
+      <div class="stages">
+        <div class="stage">
+          <div class="stage-num"><b>01</b> · working directory</div>
+          <h3>onde você edita</h3>
+          <p>A pasta normal do projeto no seu computador. Arquivos modificados aqui ainda não estão sendo rastreados
+            pelo Git.</p>
+          <div class="arrow-r">→</div>
+        </div>
+        <div class="stage">
+          <div class="stage-num"><b>02</b> · staging area</div>
+          <h3>onde você seleciona</h3>
+          <p>Uma área intermediária onde você escolhe quais mudanças vão entrar no próximo commit. É o
+            <code>git add</code> que move os arquivos pra cá.</p>
+          <div class="arrow-r">→</div>
+        </div>
+        <div class="stage">
+          <div class="stage-num"><b>03</b> · .git/</div>
+          <h3>onde fica salvo</h3>
+          <p>O repositório local de verdade. Cada commit vira um snapshot identificado por um hash SHA-1 e fica
+            guardado aqui.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script src="main.js"></script>
 </body>
