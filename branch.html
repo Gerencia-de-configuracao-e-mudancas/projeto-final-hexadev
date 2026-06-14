@@ -54,6 +54,47 @@
       </div>
     </div>
   </header>
+
+  <section id="diagrama" class="reveal">
+    <div class="container">
+      <span class="section-label">03.1 — visualização</span>
+      <h2>Um feature branch nasce, vive e morre em um merge.</h2>
+      <p class="sub">Acompanhe os commits de uma branch <code>feature/api</code> sendo integrada de volta à
+        <code>main</code>.</p>
+
+      <div class="branch-diagram">
+        <div class="branch-row main">
+          <div class="branch-name">main</div>
+          <div class="line">
+            <div class="commit-dot" style="left: 8%;"><span class="commit-label" style="left:50%;">C1</span></div>
+            <div class="commit-dot" style="left: 28%;"><span class="commit-label" style="left:50%;">C2</span></div>
+            <div class="commit-dot" style="left: 92%; background: var(--violet); box-shadow: 0 0 0 1px var(--violet);">
+              <span class="commit-label" style="left:50%;">C5 merge</span></div>
+          </div>
+        </div>
+        <div class="branch-row feature">
+          <div class="branch-name">feature/api</div>
+          <div class="line">
+            <div class="commit-dot" style="left: 45%;"><span class="commit-label" style="left:50%;">C3</span></div>
+            <div class="commit-dot" style="left: 70%;"><span class="commit-label" style="left:50%;">C4</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="terminal" style="margin-top: 28px;">
+        <div class="terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span
+            class="name">fluxo completo</span></div>
+        <div class="terminal-body">
+          <span class="prompt">$</span> <span class="cmd">git checkout -b feature/api</span>
+          <span class="out">Switched to a new branch 'feature/api'</span>
+          <span class="prompt">$</span> <span class="cmd">git commit -m "feat: endpoint /users"</span>
+          <span class="prompt">$</span> <span class="cmd">git commit -m "feat: endpoint /posts"</span>
+          <span class="prompt">$</span> <span class="cmd">git checkout main &amp;&amp; git merge feature/api</span>
+          <span class="out">Merge made by the 'ort' strategy.</span>
+        </div>
+      </div>
+    </div>
+  </section>
   
 </body>
 
