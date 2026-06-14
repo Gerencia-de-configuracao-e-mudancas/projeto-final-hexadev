@@ -342,3 +342,260 @@ section .sub {
   font-size: 16px;
   margin-bottom: 40px;
 }
+
+/* Split */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.split > div {
+  padding: 32px;
+}
+
+.split > div + div {
+  border-left: 1px solid var(--line);
+}
+
+.split h3 {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-mute);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.split p {
+  color: var(--text-dim);
+}
+
+.split .big {
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--text);
+  margin-bottom: 12px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.split .winner {
+  background: color-mix(in oklab, var(--indigo) 8%, transparent);
+}
+
+.split .winner h3 {
+  color: var(--violet);
+}
+
+/* Stages */
+.stages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.stage {
+  padding: 28px;
+  position: relative;
+}
+
+.stage + .stage {
+  border-left: 1px solid var(--line);
+}
+
+.stage-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-mute);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stage-num b {
+  color: var(--indigo);
+  font-weight: 500;
+}
+
+.stage h3 {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.stage p {
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+.stage .arrow-r {
+  position: absolute;
+  right: -7px;
+  top: 24px;
+  width: 14px;
+  height: 14px;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--indigo);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  z-index: 2;
+}
+
+.stage:last-child .arrow-r {
+  display: none;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--line-strong);
+}
+
+.t-item {
+  position: relative;
+  padding-bottom: 32px;
+  padding-left: 4px;
+}
+
+.t-item::before {
+  content: '';
+  position: absolute;
+  left: -29px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--indigo);
+}
+
+.t-year {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--violet);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.t-item h4 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.t-item p {
+  color: var(--text-dim);
+  font-size: 15px;
+}
+
+/* Tabs */
+.tabs {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 4px;
+  margin-bottom: 20px;
+  gap: 2px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-mute);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: color .15s, background .15s;
+}
+
+.tab-btn:hover {
+  color: var(--text);
+}
+
+.tab-btn.active {
+  background: var(--indigo);
+  color: #fff;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+/* Terminal */
+.terminal {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-elev);
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in oklab, var(--bg-elev) 90%, var(--line));
+}
+
+.terminal-bar .d {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--line-strong);
+}
+
+.terminal-bar .name {
+  margin-left: 10px;
+  font-size: 11px;
+  color: var(--text-mute);
+}
+
+.terminal-body {
+  padding: 16px 18px;
+}
+
+.terminal-body .prompt {
+  color: var(--violet);
+}
+
+.terminal-body .cmd {
+  color: var(--text);
+}
+
+.terminal-body .out {
+  color: var(--text-dim);
+  display: block;
+  margin: 4px 0 10px;
+}
