@@ -118,6 +118,40 @@
       </div>
     </div>
   </section>
+
+  <section id="conflitos" class="reveal">
+    <div class="container">
+      <span class="section-label">03.3 — quando dá ruim</span>
+      <h2>Conflito não é erro. É o Git pedindo sua opinião.</h2>
+      <p class="sub">Quando duas pessoas mudam a mesma linha, o Git para e pergunta qual versão vale.</p>
+
+      <div class="split">
+        <div>
+          <h3>anatomia do conflito</h3>
+          <div class="conflict" style="margin-top: 12px;">
+            <div class="ln marker"><span class="n">1</span>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</div>
+            <div class="ln head"><span class="n">2</span>const url = 'https://api.v1.com';</div>
+            <div class="ln marker"><span class="n">3</span>=======</div>
+            <div class="ln incoming"><span class="n">4</span>const url = 'https://api.v2.com';</div>
+            <div class="ln marker"><span class="n">5</span>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/api</div>
+          </div>
+        </div>
+        <div class="winner">
+          <h3>como resolver</h3>
+          <p class="big">Edite o arquivo. Apague os marcadores. Commit.</p>
+          <p>Escolha uma das versões, as duas combinadas, ou algo novo. Depois:</p>
+          <div class="terminal" style="margin-top: 14px;">
+            <div class="terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span
+                class="name">resolução</span></div>
+            <div class="terminal-body">
+              <span class="prompt">$</span> <span class="cmd">git add src/config.js</span>
+              <span class="prompt">$</span> <span class="cmd">git commit -m "fix: padroniza endpoint v2"</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   
 </body>
 
