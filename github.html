@@ -8,7 +8,7 @@
   <meta name="description"
     content="A diferença entre Git e GitHub, autenticação HTTPS vs SSH e automação com GitHub Actions." />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="shortcut icon" href="git-icon-logo-png-transparent.png" type="image/x-icon">
+  <link rel="shortcut icon" href="assets/git-icon-logo-png-transparent.png" type="image/x-icon">
 </head>
 
 <body>
@@ -108,17 +108,17 @@
       </div>
 
       <div class="terminal"">
-        <div class="terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span
-            class="name">configurando ssh do zero</span></div>
-        <div class="terminal-body">
-          <span class="prompt">$</span> <span class="cmd">ssh-keygen -t ed25519 -C "seu@email.com"</span>
-          <span class="out">Generating public/private ed25519 key pair.</span>
-          <span class="prompt">$</span> <span class="cmd">cat ~/.ssh/id_ed25519.pub</span>
-          <span class="out"># copie esta chave em github.com/settings/keys</span>
-          <span class="prompt">$</span> <span class="cmd">git remote add origin git@github.com:user/repo.git</span>
-          <span class="prompt">$</span> <span class="cmd">git push -u origin main</span>
-        </div>
+        <div class=" terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span
+          class="name">configurando ssh do zero</span></div>
+      <div class="terminal-body">
+        <span class="prompt">$</span> <span class="cmd">ssh-keygen -t ed25519 -C "seu@email.com"</span>
+        <span class="out">Generating public/private ed25519 key pair.</span>
+        <span class="prompt">$</span> <span class="cmd">cat ~/.ssh/id_ed25519.pub</span>
+        <span class="out"># copie esta chave em github.com/settings/keys</span>
+        <span class="prompt">$</span> <span class="cmd">git remote add origin git@github.com:user/repo.git</span>
+        <span class="prompt">$</span> <span class="cmd">git push -u origin main</span>
       </div>
+    </div>
     </div>
   </section>
 
