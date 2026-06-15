@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git Academy — 04 / GitHub e nuvem</title>
+  <meta name="description" content="A diferença entre Git e GitHub, autenticação HTTPS vs SSH e automação com GitHub Actions." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="git-icon-logo-png-transparent.png" type="image/x-icon">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="dot"></span>
+      <span><b>Git</b> Academy</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-num="01">fundamentos</a></li>
+      <li><a href="comandos.html" data-num="02">comandos</a></li>
+      <li><a href="branch.html" data-num="03">branches</a></li>
+      <li><a href="github.html" data-num="04" class="active">github</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-toggle" title="Menu">
+        <img src="cardapio.png" alt="Menu" width="20" height="20">
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-num">capítulo<b>04</b></div>
+      <div class="hero-content reveal">
+        <h1>Git é a ferramenta. GitHub é o <em>lugar</em>.</h1>
+        <p class="lead">Versionar é local. Colaborar é remoto. Aqui você liga as duas pontas — com autenticação que não vaza e automações que rodam sozinhas.</p>
+        <div class="hero-meta">
+          <span>git vs github</span>
+          <span>https · ssh</span>
+          <span>actions / ci-cd</span>
+        </div>
+        <div class="actions">
+          <a href="#diff" class="btn primary">git vs github <span class="arrow">→</span></a>
+          <a href="#auth" class="btn ghost">autenticação</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="diff" class="reveal">
+  <div class="container">
+    <span class="section-label">04.1 — confusão clássica</span>
+    <h2>Não é a mesma coisa. Nem é da mesma empresa.</h2>
+    <p class="sub">Git foi criado em 2005 por Linus Torvalds. GitHub foi fundado em 2008 e hoje pertence à Microsoft.</p>
+
+    <div class="split">
+      <div>
+        <h3>git</h3>
+        <p class="big">software local, instalado no seu computador.</p>
+        <p>Open source. Roda sem internet. Gerencia o histórico em <code>.git/</code> e não conhece nuvem alguma por padrão.</p>
+      </div>
+      <div class="winner">
+        <h3>github</h3>
+        <p class="big">plataforma web que hospeda repositórios git.</p>
+        <p>Adiciona pull requests, issues, code review, actions, packages e uma interface visual. Não é a única — GitLab e Bitbucket fazem o mesmo papel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="auth" class="reveal">
+  <div class="container">
+    <span class="section-label">04.2 — autenticação</span>
+    <h2>Conectar o repositório local ao remoto.</h2>
+    <p class="sub">Senha não funciona mais. Você precisa de um token (HTTPS) ou de um par de chaves (SSH).</p>
+
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-num"><b>opção a</b> · https + pat</div>
+        <h3>token de acesso pessoal</h3>
+        <p>Mais simples de começar. Você gera um PAT no GitHub e usa no lugar da senha. Bom para máquinas temporárias.</p>
+        <div class="arrow-r">→</div>
+      </div>
+      <div class="stage">
+        <div class="stage-num"><b>opção b</b> · ssh</div>
+        <h3>par de chaves criptográficas</h3>
+        <p>Padrão da indústria. Gera <code>id_ed25519</code> local, coloca a pública no GitHub e nunca mais digita senha.</p>
+        <div class="arrow-r">→</div>
+      </div>
+      <div class="stage">
+        <div class="stage-num"><b>resultado</b></div>
+        <h3>push e pull sem fricção</h3>
+        <p>Independente da opção, o objetivo final é o mesmo: sincronizar commits sem interrupção.</p>
+      </div>
+    </div>
+
+    <div class="terminal" style="margin-top: 28px;">
+      <div class="terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="name">configurando ssh do zero</span></div>
+      <div class="terminal-body">
+        <span class="prompt">$</span> <span class="cmd">ssh-keygen -t ed25519 -C "seu@email.com"</span>
+        <span class="out">Generating public/private ed25519 key pair.</span>
+        <span class="prompt">$</span> <span class="cmd">cat ~/.ssh/id_ed25519.pub</span>
+        <span class="out"># copie esta chave em github.com/settings/keys</span>
+        <span class="prompt">$</span> <span class="cmd">git remote add origin git@github.com:user/repo.git</span>
+        <span class="prompt">$</span> <span class="cmd">git push -u origin main</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="actions" class="reveal">
+  <div class="container">
+    <span class="section-label">04.3 — automação</span>
+    <h2>GitHub Actions: o servidor que trabalha enquanto você dorme.</h2>
+    <p class="sub">Um arquivo YAML em <code>.github/workflows/</code> faz o GitHub rodar testes, build e deploy a cada push.</p>
+
+    <div class="terminal">
+      <div class="terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="name">.github/workflows/ci.yml</span></div>
+      <div class="terminal-body">
+        <span class="cmd">name: ci</span>
+        <span class="cmd">on: [push, pull_request]</span>
+        <span class="cmd">jobs:</span>
+        <span class="cmd">&nbsp;&nbsp;test:</span>
+        <span class="cmd">&nbsp;&nbsp;&nbsp;&nbsp;runs-on: ubuntu-latest</span>
+        <span class="cmd">&nbsp;&nbsp;&nbsp;&nbsp;steps:</span>
+        <span class="cmd">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/checkout@v4</span>
+        <span class="cmd">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/setup-node@v4</span>
+        <span class="cmd">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with: { node-version: 20 }</span>
+        <span class="cmd">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- run: npm ci</span>
+        <span class="cmd">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- run: npm test</span>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top: 28px;">
+      <div>
+        <h3>ci — continuous integration</h3>
+        <p class="big">Rodar testes a cada push.</p>
+        <p>Pega bugs antes do merge. Quanto mais cedo o feedback, mais barata a correção.</p>
+      </div>
+      <div>
+        <h3>cd — continuous deployment</h3>
+        <p class="big">Subir código para produção automaticamente.</p>
+        <p>Merge na <code>main</code> dispara o deploy. Sem intervenção manual, sem pasta zipada por FTP.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="nav-brand" style="margin-bottom: 16px;"><span class="dot"></span><span><b>git</b><span class="slash">/</span>academy</span></a>
+        <p>Material de estudo aberto sobre versionamento de código. Construído para colegas de turma, não para SEO.</p>
+      </div>
+      <div>
+        <h5>capítulos</h5>
+        <ul>
+          <li><a href="index.html">01 / fundamentos</a></li>
+          <li><a href="comandos.html">02 / comandos</a></li>
+          <li><a href="branch.html">03 / branches</a></li>
+          <li><a href="github.html">04 / github</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>responsáveis</h5>
+        <div class="team-list">
+          <div class="team-row"><span></span><span>Ray Davyd</span></div>
+          <div class="team-row"><span></span><span>Luciana Silva</span></div>
+          <div class="team-row"><span></span><span>Gustavo Pires</span></div>
+          <div class="team-row"><span></span><span>Luan Ribeiro</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>projeto acadêmico — gerência de configuração e mudança / 2026</span>
+      <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">voltar ao topo ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
