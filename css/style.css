@@ -461,6 +461,7 @@ section .sub {
 .timeline {
   position: relative;
   padding-left: 32px;
+  margin-top: 24px;
 }
 
 .timeline::before {
@@ -595,8 +596,8 @@ section .sub {
 }
 
 .terminal-body .out {
-  color: var(--text-dim);
   display: block;
+  color: var(--text-dim);
   margin: 4px 0 10px;
 }
 
