@@ -1,87 +1,64 @@
-# 📘 Manual de Uso do Git
+# 📘 Git Academy
 
-## 📖 Sobre o Projeto
+> Material de estudo sobre Git e controle de versão desenvolvido para a disciplina de **Gerência de Configuração e Mudança** — 2026.
 
-O **Manual de Uso do Git** é um projeto desenvolvido com o objetivo de auxiliar estudantes e desenvolvedores no aprendizado das principais funcionalidades do Git e do GitHub.
-
-A aplicação apresenta conceitos fundamentais de controle de versão, explicando os comandos mais utilizados no dia a dia do desenvolvimento de software, desde a configuração inicial até o trabalho colaborativo com branches, merges e pull requests.
+🔗 **Acesse o site:** [gerencia-de-configuracao-e-mudancas.github.io/projeto-final-hexadev](https://gerencia-de-configuracao-e-mudancas.github.io/projeto-final-hexadev/)
 
 ---
 
-## 🎯 Objetivo do Repositório
+## 📖 Sobre o projeto
 
-* Ensinar os conceitos básicos e intermediários do Git.
-* Demonstrar os comandos mais utilizados em projetos reais.
-* Facilitar o aprendizado de GitHub e versionamento de código.
-* Servir como material de consulta rápida para estudantes e desenvolvedores.
-* Incentivar boas práticas de gerenciamento de configuração e mudanças.
+O **Git Academy** é um site educacional que apresenta os conceitos essenciais do Git de forma objetiva e prática. O conteúdo foi pensado para estudantes que estão começando com versionamento de código — sem enrolação, só o que importa.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 📚 Conteúdo
 
-* HTML5
-* CSS3
-* JavaScript
-* Git
-* GitHub
-* GitHub Pages
+O site é dividido em 4 capítulos:
 
----
-
-## 📚 Conteúdo Abordado
-
-* Configuração inicial do Git
-* Criação e clonagem de repositórios
-* Branches
-* Commits
-* Push e Pull
-* Merge
-* Resolução de conflitos
-* Fluxo de trabalho colaborativo
-* Boas práticas de versionamento
+| Capítulo | Tema |
+|---|---|
+| 01 / Fundamentos | Controle de versão, arquitetura local do Git, história e instalação |
+| 02 / Comandos | Os 9 comandos essenciais do dia a dia e convenção de commits |
+| 03 / Branches | Criação, navegação e gerenciamento de branches |
+| 04 / GitHub | Repositórios remotos, pull requests e colaboração |
 
 ---
 
-## 👥 Contribuidores
+## 🛠️ Tecnologias
 
-* Gustavo Pires
-* Luciana Silva
-* Luan Ribeiro
-* Ray Davyd
-
----
-
-## 🔗 Links
-
-### Repositório GitHub
-
-https://github.com/Gerencia-de-configuracao-e-mudancas/projeto-final-hexadev
-
-### GitHub Pages
-
-https://gerencia-de-configuracao-e-mudancas.github.io/projeto-final-hexadev/
+- HTML5
+- CSS3
+- JavaScript
+- GitHub Pages (deploy)
 
 ---
 
-## 🛠️ Como Executar o Projeto
+## 👥 Equipe
 
-1. Clone o repositório:
+| Nome |
+|---|
+| Ray Davyd |
+| Luciana Silva |
+| Gustavo Pires |
+| Luan Ribeiro |
+
+---
+
+## 🚀 Como rodar localmente
 
 ```bash
-git clone https://github.com/Gerencia-de-configuracao-e-mudancas/projeto-final-hexadev.git
-```
+# Clone o repositório
+git clone https://github.com/gerencia-de-configuracao-e-mudancas/projeto-final-hexadev.git
 
-2. Entre na pasta do projeto:
-
-```bash
+# Entre na pasta
 cd projeto-final-hexadev
-```
 
-3. Abra o arquivo `index.html` em seu navegador ou acesse a versão publicada pelo GitHub Pages.
+# Abra o index.html no navegador
+```
 
 ---
 
 ## 📄 Licença
 
-Este projeto foi desenvolvido para fins acadêmicos e educacionais, com o objetivo de promover o aprendizado sobre Git, GitHub e controle de versão.
+Projeto acadêmico desenvolvido para fins educacionais — IFPB, 2026.
