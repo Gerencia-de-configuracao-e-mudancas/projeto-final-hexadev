@@ -1,186 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Git Academy — 02 / Comandos do dia a dia</title>
-  <meta name="description" content="Referência de comandos Git usados de verdade: status, add, commit, stash, log e mais." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git Academy — 02 / Comandos do dia a dia</title>
+  <meta name="description"
+    content="Referência de comandos Git usados de verdade: status, add, commit, stash, log e mais." />
   <link rel="stylesheet" href="style.css" />
   <link rel="shortcut icon" href="git-icon-logo-png-transparent.png" type="image/x-icon">
 
 </head>
+
 <body>
-<nav class="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-brand">
-      <span class="dot"></span>
-      <span><b>Git</b> Academy</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html" data-num="01">fundamentos</a></li>
-      <li><a href="comandos.html" data-num="02" class="active">comandos</a></li>
-      <li><a href="branch.html" data-num="03">branches</a></li>
-      <li><a href="github.html" data-num="04">github</a></li>
-    </ul>
-    <div class="nav-actions">
-         <button class="nav-toggle" title="Menu">
-          <img src="cardapio.png" alt="Menu" width="20" height="20">
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="dot"></span>
+        <span><b>Git</b> Academy</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-num="01">fundamentos</a></li>
+        <li><a href="comandos.html" data-num="02" class="active">comandos</a></li>
+        <li><a href="branch.html" data-num="03">branches</a></li>
+        <li><a href="github.html" data-num="04">github</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-toggle" title="Menu">
+          <span>☰</span>
         </button>
-    </div>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-num">capítulo<b>02</b></div>
-      <div class="hero-content reveal">
-        <h1>Os comandos que você vai usar <em>todos os dias</em>.</h1>
-        <p class="lead">Sem listas de 50 flags. Só o que aparece no terminal de quem entrega código semana após semana — com o motivo de existir.</p>
-        <div class="hero-meta">
-          <span><b>9 comandos</b> essenciais</span>
-          <span>copia-cola pronto</span>
-          <span>foco em workflow real</span>
-        </div>
-        <div class="actions">
-          <a href="#lista" class="btn primary">abrir referência <span class="arrow"></span></a>
-          <a href="branch.html" class="btn ghost">ir para branches</a>
-        </div>
       </div>
     </div>
-  </div>
-</header>
+  </nav>
 
-<section id="lista" class="reveal">
-  <div class="container">
-    <span class="section-label">02.1 — referência rápida</span>
-    <h2>Filtre pelo que importa agora.</h2>
-    <p class="sub">"Essenciais" cobre o ciclo init → commit → push. "Produtividade" são atalhos que devs experientes usam sem pensar.</p>
-
-    <div class="filter-bar">
-      <button class="filter-btn active" data-group="essencial">essenciais</button>
-      <button class="filter-btn" data-group="produtividade">produtividade</button>
-      <button class="filter-btn" data-group="all">tudo</button>
-    </div>
-
-    <div class="cmd-group active cmd-list" data-group="essencial">
-      <div class="cmd-card">
-        <div class="row1"><span class="tag">essencial</span><button class="copy">copiar</button></div>
-        <h3>git <span class="arg">init</span></h3>
-        <p>Transforma uma pasta comum em repositório Git. Cria a estrutura interna em <code>.git/</code>.</p>
-        <code class="line">git init</code>
-      </div>
-      <div class="cmd-card">
-        <div class="row1"><span class="tag">essencial</span><button class="copy">copiar</button></div>
-        <h3>git <span class="arg">status</span></h3>
-        <p>Mostra o que mudou desde o último commit e o que está pronto para entrar no próximo.</p>
-        <code class="line">git status</code>
-      </div>
-      <div class="cmd-card">
-        <div class="row1"><span class="tag">essencial</span><button class="copy">copiar</button></div>
-        <h3>git <span class="arg">add</span></h3>
-        <p>Move alterações do working directory para a staging area. Use <code>.</code> para tudo ou um caminho específico.</p>
-        <code class="line">git add .</code>
-      </div>
-      <div class="cmd-card">
-        <div class="row1"><span class="tag">essencial</span><button class="copy">copiar</button></div>
-        <h3>git <span class="arg">commit</span></h3>
-        <p>Grava um snapshot do que está em staging. A mensagem é parte da documentação do projeto.</p>
-        <code class="line">git commit -m "feat: adiciona login"</code>
-      </div>
-      <div class="cmd-card">
-        <div class="row1"><span class="tag">essencial</span><button class="copy">copiar</button></div>
-        <h3>git <span class="arg">push</span></h3>
-        <p>Envia commits locais para o repositório remoto (GitHub, GitLab, etc).</p>
-        <code class="line">git push origin main</code>
-      </div>
-      <div class="cmd-card">
-        <div class="row1"><span class="tag">essencial</span><button class="copy">copiar</button></div>
-        <h3>git <span class="arg">pull</span></h3>
-        <p>Baixa e integra mudanças do remoto na sua branch atual. Sempre antes de começar a trabalhar.</p>
-        <code class="line">git pull</code>
-      </div>
-    </div>
-
-    <div class="cmd-group cmd-list" data-group="produtividade">
-      <div class="cmd-card">
-        <div class="row1"><span class="tag">produtividade</span><button class="copy">copiar</button></div>
-        <h3>git <span class="arg">status -s</span></h3>
-        <p>Versão compacta do status. Duas colunas: o que está em staging, o que não está.</p>
-        <code class="line">git status -s</code>
-      </div>
-      <div class="cmd-card">
-        <div class="row1"><span class="tag">produtividade</span><button class="copy">copiar</button></div>
-        <h3>git <span class="arg">stash</span></h3>
-        <p>Guarda mudanças não commitadas numa pilha temporária. Útil quando você precisa trocar de branch agora.</p>
-        <code class="line">git stash</code>
-      </div>
-      <div class="cmd-card">
-        <div class="row1"><span class="tag">produtividade</span><button class="copy">copiar</button></div>
-        <h3>git <span class="arg">log --oneline</span></h3>
-        <p>Histórico em uma linha por commit. O log padrão é verboso demais para uso diário.</p>
-        <code class="line">git log --oneline --graph -10</code>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="dica" class="reveal">
-  <div class="container">
-    <span class="section-label">02.2 — convenção</span>
-    <h2>Boas mensagens de commit não são opcionais.</h2>
-    <p class="sub">A convenção <code>tipo: descrição</code> deixa o histórico legível e habilita changelogs automáticos.</p>
-
-    <div class="terminal">
-      <div class="terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="name">conventional commits — exemplos</span></div>
-      <div class="terminal-body">
-        <span class="prompt">$</span> <span class="cmd">git commit -m "feat: adiciona filtro por categoria"</span>
-        <span class="out"> nova funcionalidade visível ao usuário</span>
-        <span class="prompt">$</span> <span class="cmd">git commit -m "fix: corrige cálculo do total no carrinho"</span>
-        <span class="out"> correção de bug</span>
-        <span class="prompt">$</span> <span class="cmd">git commit -m "refactor: extrai serviço de autenticação"</span>
-        <span class="out"> muda código sem alterar comportamento</span>
-        <span class="prompt">$</span> <span class="cmd">git commit -m "docs: atualiza README com instruções de setup"</span>
-        <span class="out"> apenas documentação</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer-top">
-      <div>
-        <a href="index.html" class="nav-brand" style="margin-bottom: 16px;"><span class="dot"></span><span><b>git</b><span class="slash">/</span>academy</span></a>
-        <p>Material de estudo aberto sobre versionamento de código. Construído para colegas de turma, não para CEO.</p>
-      </div>
-      <div>
-        <h5>capítulos</h5>
-        <ul>
-          <li><a href="index.html">01 / fundamentos</a></li>
-          <li><a href="comandos.html">02 / comandos</a></li>
-          <li><a href="branch.html">03 / branches</a></li>
-          <li><a href="github.html">04 / github</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>responsáveis</h5>
-        <div class="team-list">
-          <div class="team-row"><span></span><span>Ray Davyd</span></div>
-          <div class="team-row"><span></span><span>Luciana Silva</span></div>
-          <div class="team-row"><span></span><span>Gustavo Pires</span></div>
-          <div class="team-row"><span></span><span>Luan Ribeiro</span></div>
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-num">capítulo<b>02</b></div>
+        <div class="hero-content reveal">
+          <h1>Os comandos que você vai usar <em>todos os dias</em>.</h1>
+          <p class="lead">Sem listas de 50 flags. Só o que aparece no terminal de quem entrega código semana após semana
+            — com o motivo de existir.</p>
+          <div class="hero-meta">
+            <span><b>9 comandos</b> essenciais</span>
+            <span>copia-cola pronto</span>
+            <span>foco em workflow real</span>
+          </div>
+          <div class="actions">
+            <a href="#lista" class="btn primary">abrir referência <span class="arrow"></span></a>
+            <a href="branch.html" class="btn ghost">ir para branches</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>projeto acadêmico — gerência de configuração e mudança / 2026</span>
-      <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">voltar ao topo ↑</a>
-    </div>
-  </div>
-</footer>
+  </header>
 
-<script src="main.js"></script>
-    
+  <section id="lista" class="reveal">
+    <div class="container">
+      <span class="section-label">02.1 — referência rápida</span>
+      <h2>Filtre pelo que importa agora.</h2>
+      <p class="sub">"Essenciais" cobre o ciclo init → commit → push. "Produtividade" são atalhos que devs experientes
+        usam sem pensar.</p>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-group="essencial">essenciais</button>
+        <button class="filter-btn" data-group="produtividade">produtividade</button>
+        <button class="filter-btn" data-group="all">tudo</button>
+      </div>
+
+      <div class="cmd-group active cmd-list" data-group="essencial">
+        <div class="cmd-card">
+          <div class="row1"><span class="tag">essencial</span><button class="copy">copiar</button></div>
+          <h3>git <span class="arg">init</span></h3>
+          <p>Transforma uma pasta comum em repositório Git. Cria a estrutura interna em <code>.git/</code>.</p>
+          <code class="line">git init</code>
+        </div>
+        <div class="cmd-card">
+          <div class="row1"><span class="tag">essencial</span><button class="copy">copiar</button></div>
+          <h3>git <span class="arg">status</span></h3>
+          <p>Mostra o que mudou desde o último commit e o que está pronto para entrar no próximo.</p>
+          <code class="line">git status</code>
+        </div>
+        <div class="cmd-card">
+          <div class="row1"><span class="tag">essencial</span><button class="copy">copiar</button></div>
+          <h3>git <span class="arg">add</span></h3>
+          <p>Move alterações do working directory para a staging area. Use <code>.</code> para tudo ou um caminho
+            específico.</p>
+          <code class="line">git add .</code>
+        </div>
+        <div class="cmd-card">
+          <div class="row1"><span class="tag">essencial</span><button class="copy">copiar</button></div>
+          <h3>git <span class="arg">commit</span></h3>
+          <p>Grava um snapshot do que está em staging. A mensagem é parte da documentação do projeto.</p>
+          <code class="line">git commit -m "feat: adiciona login"</code>
+        </div>
+        <div class="cmd-card">
+          <div class="row1"><span class="tag">essencial</span><button class="copy">copiar</button></div>
+          <h3>git <span class="arg">push</span></h3>
+          <p>Envia commits locais para o repositório remoto (GitHub, GitLab, etc).</p>
+          <code class="line">git push origin main</code>
+        </div>
+        <div class="cmd-card">
+          <div class="row1"><span class="tag">essencial</span><button class="copy">copiar</button></div>
+          <h3>git <span class="arg">pull</span></h3>
+          <p>Baixa e integra mudanças do remoto na sua branch atual. Sempre antes de começar a trabalhar.</p>
+          <code class="line">git pull</code>
+        </div>
+      </div>
+
+      <div class="cmd-group cmd-list" data-group="produtividade">
+        <div class="cmd-card">
+          <div class="row1"><span class="tag">produtividade</span><button class="copy">copiar</button></div>
+          <h3>git <span class="arg">status -s</span></h3>
+          <p>Versão compacta do status. Duas colunas: o que está em staging, o que não está.</p>
+          <code class="line">git status -s</code>
+        </div>
+        <div class="cmd-card">
+          <div class="row1"><span class="tag">produtividade</span><button class="copy">copiar</button></div>
+          <h3>git <span class="arg">stash</span></h3>
+          <p>Guarda mudanças não commitadas numa pilha temporária. Útil quando você precisa trocar de branch agora.</p>
+          <code class="line">git stash</code>
+        </div>
+        <div class="cmd-card">
+          <div class="row1"><span class="tag">produtividade</span><button class="copy">copiar</button></div>
+          <h3>git <span class="arg">log --oneline</span></h3>
+          <p>Histórico em uma linha por commit. O log padrão é verboso demais para uso diário.</p>
+          <code class="line">git log --oneline --graph -10</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dica" class="reveal">
+    <div class="container">
+      <span class="section-label">02.2 — convenção</span>
+      <h2>Boas mensagens de commit não são opcionais.</h2>
+      <p class="sub">A convenção <code>tipo: descrição</code> deixa o histórico legível e habilita changelogs
+        automáticos.</p>
+
+      <div class="terminal">
+        <div class="terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span
+            class="name">conventional commits — exemplos</span></div>
+        <div class="terminal-body">
+          <span class="prompt">$</span> <span class="cmd">git commit -m "feat: adiciona filtro por categoria"</span>
+          <span class="out"> nova funcionalidade visível ao usuário</span>
+          <span class="prompt">$</span> <span class="cmd">git commit -m "fix: corrige cálculo do total no
+            carrinho"</span>
+          <span class="out"> correção de bug</span>
+          <span class="prompt">$</span> <span class="cmd">git commit -m "refactor: extrai serviço de
+            autenticação"</span>
+          <span class="out"> muda código sem alterar comportamento</span>
+          <span class="prompt">$</span> <span class="cmd">git commit -m "docs: atualiza README com instruções de
+            setup"</span>
+          <span class="out"> apenas documentação</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="nav-brand">
+            <span class="dot"></span><span><b>Git</b></span>Academy</span>
+          </a>
+          <p>Material de estudo sobre versionamento de código feito para a disciplina de Gerência de Configuração.
+          </p>
+        </div>
+        <div>
+          <h5>capítulos</h5>
+          <ul>
+            <li><a href="index.html">01 / fundamentos</a></li>
+            <li><a href="comandos.html">02 / comandos</a></li>
+            <li><a href="branch.html">03 / branches</a></li>
+            <li><a href="github.html">04 / github</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>responsáveis</h5>
+          <div class="team-list">
+            <div class="team-row"><span></span><span>Ray Davyd</span></div>
+            <div class="team-row"><span></span><span>Luciana Silva</span></div>
+            <div class="team-row"><span></span><span>Gustavo Pires</span></div>
+            <div class="team-row"><span></span><span>Luan Ribeiro</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>projeto acadêmico — gerência de configuração e mudança / 2026</span>
+        <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">voltar ao topo ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+
 </body>
+
 </html>

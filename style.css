@@ -793,7 +793,7 @@ section .sub {
 
 .commit-label {
   position: absolute;
-  top: -22px;
+  top: -55px;
   transform: translateX(-50%);
   font-family: var(--font-mono);
   font-size: 10px;
