@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git Academy — 01 / Fundamentos do controle de versão</title>
+  <meta name="description"
+    content="Material de estudo sobre Git: arquitetura local, histórico e instalação. Projeto acadêmico de Engenharia de Software." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="shortcut icon" href="assets/git-icon-logo-png-transparent.png" type="image/x-icon">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="dot"></span>
+        <span><b>Git</b> Academy</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-num="01" class="active">fundamentos</a></li>
+        <li><a href="comandos.html" data-num="02">comandos</a></li>
+        <li><a href="branch.html" data-num="03">branches</a></li>
+        <li><a href="github.html" data-num="04">github</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-toggle" title="Menu">
+          <span>☰</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-num">
+          capítulo
+          <b>01</b>
+        </div>
+        <div class="hero-content reveal">
+          <h1>Entenda o <em>controle de versão</em> antes de decorar qualquer comando.</h1>
+          <p class="lead">O Git guarda snapshots do seu projeto, não cópias de arquivo. Conhecer essa diferença muda
+            como você pensa em versionamento.</p>
+          <div class="hero-meta">
+            <span><b>15 min</b> de leitura</span>
+            <span>4 seções</span>
+            <span>nível introdutório</span>
+          </div>
+          <div class="actions">
+            <a href="#vcs" class="btn primary">começar a ler <span class="arrow">→</span></a>
+            <a href="comandos.html" class="btn ghost">pular para comandos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section id="vcs" class="reveal">
+    <div class="container">
+      <span class="section-label">01.1 — sistemas de versão</span>
+      <h2>Centralizado e distribuído: qual a diferença na prática?</h2>
+      <p class="sub">No centralizado, o histórico fica num servidor. No distribuído, cada desenvolvedor tem uma cópia
+        completa localmente.</p>
+
+      <div class="split">
+        <div>
+          <h3>Centralizado / CVCS</h3>
+          <p class="big">Um servidor guarda o histórico inteiro.</p>
+          <p>O desenvolvedor baixa só a versão que precisa trabalhar. Sem conexão com o servidor, não dá pra commitar,
+            ver o log ou criar branch. SVN e CVS funcionam assim.</p>
+        </div>
+        <div class="winner">
+          <h3>Distribuído / DVCS</h3>
+          <p class="big">Cada clone já é um repositório completo.</p>
+          <p>Todo desenvolvedor tem o histórico inteiro na máquina dele. Dá pra trabalhar offline, e se o servidor cair
+            os dados não somem. É assim que o Git funciona.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="areas" class="reveal">
+    <div class="container">
+      <span class="section-label">01.2 — arquitetura local</span>
+      <h2>As três áreas do Git que você precisa conhecer.</h2>
+      <p class="sub">Antes de rodar qualquer comando, é importante entender onde o Git guarda as coisas e por quê.</p>
+
+      <div class="stages">
+        <div class="stage">
+          <div class="stage-num"><b>01</b> · working directory</div>
+          <h3>onde você edita</h3>
+          <p>A pasta normal do projeto no seu computador. Arquivos modificados aqui ainda não estão sendo rastreados
+            pelo Git.</p>
+          <div class="arrow-r">→</div>
+        </div>
+        <div class="stage">
+          <div class="stage-num"><b>02</b> · staging area</div>
+          <h3>onde você seleciona</h3>
+          <p>Uma área intermediária onde você escolhe quais mudanças vão entrar no próximo commit. É o
+            <code>git add</code> que move os arquivos pra cá.
+          </p>
+          <div class="arrow-r">→</div>
+        </div>
+        <div class="stage">
+          <div class="stage-num"><b>03</b> · .git/</div>
+          <h3>onde fica salvo</h3>
+          <p>O repositório local de verdade. Cada commit vira um snapshot identificado por um hash SHA-1 e fica
+            guardado aqui.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="historia" class="reveal">
+    <div class="container">
+      <span class="section-label">01.3 — um pouco de história</span>
+      <h2>Como o Git surgiu em dez dias.</h2>
+
+      <div class="timeline"">
+        <div class=" t-item">
+        <span class="t-year">2002</span>
+        <h4>O kernel Linux começa a usar o BitKeeper</h4>
+        <p>Ferramenta proprietária cedida de graça pro desenvolvimento do kernel. Funcionou por três anos.</p>
+      </div>
+      <div class="t-item">
+        <span class="t-year">abril / 2005</span>
+        <h4>A licença do BitKeeper é revogada</h4>
+        <p>Sem uma alternativa boa no mercado, Linus Torvalds parou o desenvolvimento do kernel pra criar sua própria
+          ferramenta.</p>
+      </div>
+      <div class="t-item">
+        <span class="t-year">7 / abril / 2005</span>
+        <h4>Primeiro commit do Git, feito no próprio Git</h4>
+        <p>Dez dias depois do início do desenvolvimento. Os requisitos principais eram velocidade, integridade dos
+          dados e suporte a branches paralelas.</p>
+      </div>
+      <div class="t-item">
+        <span class="t-year">2008</span>
+        <h4>GitHub é lançado</h4>
+        <p>Adicionou hospedagem de repositórios com interface web, issues e pull requests. Ajudou bastante na adoção
+          do Git em projetos open source.</p>
+      </div>
+    </div>
+    </div>
+  </section>
+  <section id="instalar" class="reveal">
+    <div class="container">
+      <span class="section-label">01.4 — instalação</span>
+      <h2>Como instalar o Git na sua máquina.</h2>
+      <p class="sub">Selecione o sistema operacional abaixo.</p>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="win">windows</button>
+        <button class="tab-btn" data-tab="mac">macos</button>
+        <button class="tab-btn" data-tab="linux">linux</button>
+      </div>
+
+      <div class="tab-panel active" id="win">
+        <div class="terminal">
+          <div class="terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span
+              class="name">setup — git-for-windows</span></div>
+          <div class="terminal-body">
+            <span class="out"># baixe o instalador em git-scm.com e siga o setup</span>
+            <span class="out"># deixe a opção "Git Bash Here" marcada</span>
+            <span class="prompt">PS C:\&gt;</span> <span class="cmd">git --version</span>
+            <span class="out">git version 2.45.2.windows.1</span>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="mac">
+        <div class="terminal">
+          <div class="terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span
+              class="name">zsh — homebrew</span></div>
+          <div class="terminal-body">
+            <span class="prompt">~ $</span> <span class="cmd">brew install git</span>
+            <span class="out">==&gt; Installing git ...</span>
+            <span class="prompt">~ $</span> <span class="cmd">git --version</span>
+            <span class="out">git version 2.45.2</span>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="linux">
+        <div class="terminal">
+          <div class="terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span
+              class="name">bash — debian/ubuntu</span></div>
+          <div class="terminal-body">
+            <span class="prompt">$</span> <span class="cmd">sudo apt update &amp;&amp; sudo apt install git -y</span>
+            <span class="out">Setting up git (1:2.43.0-1ubuntu7) ...</span>
+            <span class="prompt">$</span> <span class="cmd">git --version</span>
+            <span class="out">git version 2.43.0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="nav-brand">
+            <span class="dot"></span><span><b>Git</b></span>Academy</span>
+          </a>
+          <p>Material de estudo sobre versionamento de código feito para a disciplina de Gerência de Configuração.</p>
+        </div>
+        <div>
+          <h5>capítulos</h5>
+          <ul>
+            <li><a href="index.html">01 / fundamentos</a></li>
+            <li><a href="comandos.html">02 / comandos</a></li>
+            <li><a href="branch.html">03 / branches</a></li>
+            <li><a href="github.html">04 / github</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>responsáveis</h5>
+          <div class="team-list">
+            <div class="team-row"><span></span><span>Ray Davyd</span></div>
+            <div class="team-row"><span></span><span>Luciana Silva</span></div>
+            <div class="team-row"><span></span><span>Gustavo Pires</span></div>
+            <div class="team-row"><span></span><span>Luan Ribeiro</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>projeto acadêmico — gerência de configuração e mudança / 2026</span>
+        <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">voltar ao topo ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
