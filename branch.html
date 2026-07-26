@@ -56,47 +56,68 @@
   </header>
 
   <section id="diagrama" class="reveal">
-    <div class="container">
-      <span class="section-label">03.1 — visualização</span>
-      <h2>Um feature branch nasce, vive e morre em um merge.</h2>
-      <p class="sub">Acompanhe os commits de uma branch <code>feature/api</code> sendo integrada de volta à
-        <code>main</code>.
-      </p>
+  <div class="container">
+    <span class="section-label">03.1 — visualização</span>
+    <h2>Um feature branch nasce, vive e morre em um merge.</h2>
+    <p class="sub">Acompanhe os commits de uma branch <code>feature/api</code> sendo integrada de volta à
+      <code>main</code>.
+    </p>
 
-      <div class="branch-diagram">
-        <div class="branch-row main">
-          <div class="branch-name">main</div>
-          <div class="line">
-            <div class="commit-dot" style="left: 8%;"><span class="commit-label" style="left:50%;">C1</span></div>
-            <div class="commit-dot" style="left: 28%;"><span class="commit-label" style="left:50%;">C2</span></div>
-            <div class="commit-dot" style="left: 92%; background: var(--violet); box-shadow: 0 0 0 1px var(--violet);">
-              <span class="commit-label">C5 merge</span>
-            </div>
+    <div class="diagram-controls">
+      <button class="btn primary" id="btn-start-animation">▶ iniciar animação</button>
+      <button class="btn ghost" id="btn-reset-animation" disabled>↺ reiniciar</button>
+    </div>
+
+    <div class="branch-diagram" id="branch-diagram">
+      <div class="branch-row main">
+        <div class="branch-name">main</div>
+        <div class="line" id="line-main">
+          <div class="line-fill"></div>
+
+          <div class="commit-dot" data-commit="c1" data-order="0" style="left: 8%;">
+            <span class="commit-label" style="left:50%;">C1</span>
           </div>
-        </div>
-        <div class="branch-row feature">
-          <div class="branch-name">feature/api</div>
-          <div class="line">
-            <div class="commit-dot" style="left: 45%;"><span class="commit-label" style="left:50%;">C3</span></div>
-            <div class="commit-dot" style="left: 70%;"><span class="commit-label" style="left:50%;">C4</span></div>
+
+          <div class="commit-dot" data-commit="c2" data-order="1" style="left: 28%;">
+            <span class="commit-label" style="left:50%;">C2</span>
+          </div>
+
+          <div class="commit-dot" data-commit="c5" data-order="4"
+               style="left: 92%; background: var(--violet); box-shadow: 0 0 0 1px var(--violet);">
+            <span class="commit-label">C5 merge</span>
           </div>
         </div>
       </div>
 
-      <div class="terminal" style="margin-top: 28px;">
-        <div class="terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span
-            class="name">fluxo completo</span></div>
-        <div class="terminal-body">
-          <span class="prompt">$</span> <span class="cmd">git checkout -b feature/api</span>
-          <span class="out">Switched to a new branch 'feature/api'</span>
-          <span class="prompt">$</span> <span class="cmd">git commit -m "feat: endpoint /users"</span>
-          <span class="prompt">$</span> <span class="cmd">git commit -m "feat: endpoint /posts"</span>
-          <span class="prompt">$</span> <span class="cmd">git checkout main &amp;&amp; git merge feature/api</span>
-          <span class="out">Merge made by the 'ort' strategy.</span>
+      <div class="branch-row feature">
+        <div class="branch-name">feature/api</div>
+        <div class="line" id="line-feature">
+          <div class="line-fill"></div>
+
+          <div class="commit-dot" data-commit="c3" data-order="2" style="left: 45%;">
+            <span class="commit-label" style="left:50%;">C3</span>
+          </div>
+
+          <div class="commit-dot" data-commit="c4" data-order="3" style="left: 70%;">
+            <span class="commit-label" style="left:50%;">C4</span>
+          </div>
         </div>
+      </div>
+
+      <svg class="merge-connector" id="merge-connector" viewBox="0 0 100 100" preserveAspectRatio="none"
+           style="position:absolute; left:0; top:0; width:100%; height:100%;">
+        <path id="merge-path" d="" />
+      </svg>
+    </div>
+
+    <div class="terminal" style="margin-top: 28px;" id="terminal-fluxo">
+      <div class="terminal-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span
+          class="name">fluxo completo</span></div>
+      <div class="terminal-body" id="terminal-body">
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <section id="estrategias" class="reveal">
     <div class="container">
