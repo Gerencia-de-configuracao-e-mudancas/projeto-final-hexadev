@@ -40,6 +40,25 @@
     });
   });
 
+    // Botão copiar
+  document.querySelectorAll('.copy').forEach(botao => {
+    botao.addEventListener('click', () => {
+      const comando = botao
+        .closest('.cmd-card')
+        .querySelector('.line')
+        .textContent;
+
+      navigator.clipboard.writeText(comando)
+        .then(() => {
+          const textoOriginal = botao.textContent;
+          botao.textContent = 'Copiado!';
+          setTimeout(() => {
+            botao.textContent = textoOriginal;
+          }, 1500);
+        });
+    });
+  });
+
   // Reveal on scroll
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
